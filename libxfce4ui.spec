@@ -6,9 +6,9 @@
 %define libname %mklibname xfce4ui %{api} %{major}
 %define develname %mklibname xfce4ui -d
 
-Summary:	Various GTK+ widgets for Xfce desktop environment
+Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version: 	4.7.0
+Version: 	4.7.1
 Release: 	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
@@ -25,7 +25,7 @@ BuildRequires:	xfconf-devel >= 4.6.0
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-Various GTK+ widgets for Xfce desktop environment.
+Various Xfce widgets for Xfce desktop environment.
 
 %package -n %{libname}
 Summary:	Gui libraries for Xfce
