@@ -8,8 +8,8 @@
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version: 	4.7.3
-Release: 	%mkrel 2
+Version: 	4.7.4
+Release: 	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -62,6 +62,9 @@ rm -rf %{buildroot}
 
 rm -rr %{buildroot}%{_libdir}/*.la
 
+# (tpg) this file is in mandriva-xfce-config package
+rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+
 %find_lang %{name}
 
 %clean
@@ -77,7 +80,6 @@ rm -rf %{buildroot}
 
 %files -n %{libname} -f %{name}.lang
 %defattr(-,root,root)
-%exclude %{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 %{_libdir}/libxfce4ui-%{api}.so.%{major}*
 %{_libdir}/libxfce4kbd-private-%{apikbd}.so.%{majorkbd}*
 %{_libdir}/glade3/modules/%{name}*
