@@ -17,9 +17,7 @@ Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{versio
 BuildRequires:	gtk2-devel >= 2.0.6
 BuildRequires:	libxfce4util-devel >= 4.6.0
 BuildRequires:	startup-notification-devel
-#BuildRequires:	gettext-devel
 BuildRequires:	xfce4-dev-tools >= 4.6.0
-#BuildRequires:	libglade2-devel
 BuildRequires:	glade3-devel
 BuildRequires:	xfconf-devel >= 4.6.0
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
