@@ -1,9 +1,10 @@
-%define url_ver %(echo %{version} | cut -c 1-3)
+%define url_ver %(echo %{version} | cut -d. -f1,2)
 %define major 0
 %define api 1
 %define majorkbd 0
 %define apikbd 2
 %define libname %mklibname xfce4ui %{api} %{major}
+%define libnamekbd %mklibname xfce4kbd-private %{apikbd} %{majorkbd}
 %define develname %mklibname xfce4ui -d
 
 Summary:	Various Xfce widgets for Xfce desktop environment
@@ -14,12 +15,14 @@ License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
+Patch0:		libxfce4ui-4.8.0-linkage.patch
 BuildRequires:	gtk2-devel >= 2.0.6
 BuildRequires:	libxfce4util-devel >= 4.6.0
 BuildRequires:	startup-notification-devel
 BuildRequires:	xfce4-dev-tools >= 4.6.0
 BuildRequires:	glade3-devel
 BuildRequires:	xfconf-devel >= 4.6.0
+BuildRequires:	libsm-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -28,9 +31,38 @@ Various Xfce widgets for Xfce desktop environment.
 %package -n %{libname}
 Summary:	Gui libraries for Xfce
 Group:		Graphical desktop/Xfce
+Requires:	%{name}-common = %{version}-%{release}
 
 %description -n %{libname}
 Gui libraries for Xfce desktop environment.
+
+%package -n %{libnamekbd}
+Summary:	Gui libraries for Xfce
+Group:		Graphical desktop/Xfce
+Requires:	%{name}-common = %{version}-%{release}
+Conflicts:	%{_lib}xfce4ui1_0 < 4.8.1-1
+
+%description -n %{libnamekbd}
+Gui libraries for Xfce desktop environment.
+
+%package common
+Summary:	Common files for %{name}
+Group:		Graphical desktop/Xfce
+BuildArch:	noarch
+Conflicts:      %{_lib}xfce4ui1_0 < 4.8.1-1
+
+%description common
+This package contains common files for %{name}.
+
+%package -n %{name}-glade
+Summary:	Glade modules for %{name}
+Group:		Graphical desktop/Xfce
+Requires:	glade3
+Conflicts:	%{_lib}xfce4ui1_0 < 4.8.1-1
+
+%description -n %{name}-glade
+This package provides a catalog for Glade which allows the use of the
+provided Xfce widgets in Glade.
 
 %package -n %{develname}
 Summary:	Libraries and header files for the %{name} library
@@ -43,12 +75,10 @@ Libraries and header files for the %{name} library.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure2_5x \
-%if %mdkversion < 200900
-	--sysconfdir=%{_sysconfdir}/X11 \
-%endif
 	--disable-static \
 	--enable-startup-notification
 
@@ -58,38 +88,35 @@ Libraries and header files for the %{name} library.
 rm -rf %{buildroot}
 %makeinstall_std
 
-rm -rr %{buildroot}%{_libdir}/*.la
+# (tpg) drop libtool files
+rm -rm %{buildroot}%{_libdir}/*.la
 
 # (tpg) this file is in mandriva-xfce-config package
 rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 
-%find_lang %{name}
+%find_lang %{name} %{name}.lang
 
 %clean
 rm -rf %{buildroot}
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
+%files common -f %{name}.lang
 
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%files -n %{libname} -f %{name}.lang
-%defattr(-,root,root)
+%files -n %{libname}
 %{_libdir}/libxfce4ui-%{api}.so.%{major}*
+
+%files -n %{libnamekbd}
 %{_libdir}/libxfce4kbd-private-%{apikbd}.so.%{majorkbd}*
+
+%files -n %{name}-glade
 %{_libdir}/glade3/modules/%{name}*
 %{_datadir}/glade3/catalogs/%{name}.*
 %{_datadir}/glade3/pixmaps/hicolor/*/*/*%{name}*.png
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog README NEWS
+%doc %{_datadir}/gtk-doc/html/%{name}
 %{_libdir}/%{name}-%{api}.so
-%{_includedir}/xfce4/%{name}-*
 %{_libdir}/pkgconfig/*.pc
-%{_datadir}/gtk-doc/html/%{name}
 %{_libdir}/*xfce4kbd-private-%{apikbd}.so
+%{_includedir}/xfce4/%{name}-*
 %{_includedir}/xfce4/*xfce4kbd-private-%{apikbd}
