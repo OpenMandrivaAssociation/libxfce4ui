@@ -89,7 +89,7 @@ rm -rf %{buildroot}
 %makeinstall_std
 
 # (tpg) drop libtool files
-rm -rm %{buildroot}%{_libdir}/*.la
+rm -rf %{buildroot}%{_libdir}/*.la
 
 # (tpg) this file is in mandriva-xfce-config package
 rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
