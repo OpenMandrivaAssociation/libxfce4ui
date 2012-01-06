@@ -10,7 +10,7 @@
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
 Version: 	4.8.1
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -68,6 +68,7 @@ provided Xfce widgets in Glade.
 Summary:	Libraries and header files for the %{name} library
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libnamekbd} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
