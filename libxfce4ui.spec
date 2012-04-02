@@ -9,21 +9,20 @@
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version: 	4.8.1
-Release: 	%mkrel 2
+Version: 	4.9.1
+Release: 	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch0:		libxfce4ui-4.8.0-linkage.patch
 BuildRequires:	gtk2-devel >= 2.0.6
-BuildRequires:	libxfce4util-devel >= 4.6.0
+BuildRequires:	libxfce4util-devel >= 4.9.0
 BuildRequires:	startup-notification-devel
-BuildRequires:	xfce4-dev-tools >= 4.6.0
+BuildRequires:	xfce4-dev-tools >= 4.9.0
 BuildRequires:	glade3-devel
-BuildRequires:	xfconf-devel >= 4.6.0
+BuildRequires:	xfconf-devel >= 4.9.0
 BuildRequires:	libsm-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Various Xfce widgets for Xfce desktop environment.
@@ -86,11 +85,7 @@ Libraries and header files for the %{name} library.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
-
-# (tpg) drop libtool files
-rm -rf %{buildroot}%{_libdir}/*.la
 
 # (tpg) this file is in mandriva-xfce-config package
 rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
