@@ -15,7 +15,6 @@ License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
-Patch0:		libxfce4ui-4.8.0-linkage.patch
 BuildRequires:	gtk2-devel >= 2.0.6
 BuildRequires:	libxfce4util-devel >= 4.9.0
 BuildRequires:	startup-notification-devel
@@ -75,12 +74,13 @@ Libraries and header files for the %{name} library.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %configure2_5x \
 	--disable-static \
-	--enable-startup-notification
+	--enable-startup-notification \
+	--enable-gladeui \
+	--with-vendor-info=%{vendor}
 
 %make
 
@@ -92,10 +92,10 @@ rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-key
 
 %find_lang %{name} %{name}.lang
 
-%clean
-rm -rf %{buildroot}
-
 %files common -f %{name}.lang
+%{_bindir}/xfce4-about
+%{_datadir}/applications/xfce4-about.desktop
+%{_iconsdir}/hicolor/*/apps/xfce4-logo.png
 
 %files -n %{libname}
 %{_libdir}/libxfce4ui-%{api}.so.%{major}*
