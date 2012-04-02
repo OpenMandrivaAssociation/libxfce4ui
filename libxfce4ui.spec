@@ -10,7 +10,7 @@
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
 Version: 	4.9.1
-Release: 	1
+Release: 	2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -46,7 +46,6 @@ Gui libraries for Xfce desktop environment.
 %package common
 Summary:	Common files for %{name}
 Group:		Graphical desktop/Xfce
-BuildArch:	noarch
 Conflicts:      %{_lib}xfce4ui1_0 < 4.8.1-1
 
 %description common
