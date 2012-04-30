@@ -9,16 +9,16 @@
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version: 	4.9.2
+Version: 	4.10.0
 Release: 	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	gtk2-devel >= 2.0.6
-BuildRequires:	libxfce4util-devel >= 4.9.0
+BuildRequires:	libxfce4util-devel >= 4.10.0
 BuildRequires:	startup-notification-devel
-BuildRequires:	xfce4-dev-tools >= 4.9.0
+BuildRequires:	xfce4-dev-tools >= 4.10.0
 BuildRequires:	glade3-devel
 BuildRequires:	xfconf-devel >= 4.9.0
 BuildRequires:	libsm-devel
