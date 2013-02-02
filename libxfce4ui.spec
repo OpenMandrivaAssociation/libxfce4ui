@@ -10,7 +10,7 @@
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
 Version: 	4.10.0
-Release: 	2
+Release: 	3
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -87,12 +87,11 @@ Libraries and header files for the %{name} library.
 %makeinstall_std
 
 # (tpg) this file is in mandriva-xfce-config package
-#rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 
 %find_lang %{name} %{name}.lang
 
 %files common -f %{name}.lang
-%config(noreplace) %{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/*.xml
 %{_bindir}/xfce4-about
 %{_datadir}/applications/xfce4-about.desktop
 %{_iconsdir}/hicolor/*/apps/xfce4-logo.png
