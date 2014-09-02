@@ -16,9 +16,9 @@ Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	pkgconfig(gdk-2.0) >= 2.0.6
-BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.10.0
+BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.11.0
 BuildRequires:	pkgconfig(libstartup-notification-1.0)
-BuildRequires:	xfce4-dev-tools >= 4.10.0
+BuildRequires:	xfce4-dev-tools >= 4.11.0
 BuildRequires:	pkgconfig(gladeui-1.0)
 BuildRequires:	xfconf-devel >= 4.9.0
 BuildRequires:	pkgconfig(sm)
