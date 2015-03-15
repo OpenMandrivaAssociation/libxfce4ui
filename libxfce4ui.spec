@@ -9,18 +9,18 @@
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version: 	4.11.1
-Release: 	1
+Version: 	4.12.0
+Release: 	0.1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	pkgconfig(gdk-2.0) >= 2.0.6
-BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.11.0
+BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.12.0
 BuildRequires:	pkgconfig(libstartup-notification-1.0)
-BuildRequires:	xfce4-dev-tools >= 4.11.0
+BuildRequires:	xfce4-dev-tools >= 4.12.0
 BuildRequires:	pkgconfig(gladeui-1.0)
-BuildRequires:	xfconf-devel >= 4.9.0
+BuildRequires:	xfconf-devel >= 4.12.0
 BuildRequires:	pkgconfig(sm)
 
 %description
@@ -75,7 +75,7 @@ Libraries and header files for the %{name} library.
 %setup -q
 
 %build
-%configure \
+%configure2_5x \
 	--disable-static \
 	--enable-startup-notification \
 	--enable-gladeui \
