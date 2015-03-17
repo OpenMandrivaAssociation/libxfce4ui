@@ -163,4 +163,3 @@ rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-key
 %{_libdir}/libxfce4kbd-private-%{apikbd3}.so
 %{_includedir}/xfce4/%{name}-%{api3}/
 %{_includedir}/xfce4/libxfce4kbd-private-%{apikbd3}/
-%{_datadir}/gtk-doc/html/%{name}/
