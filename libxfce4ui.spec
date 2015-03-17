@@ -52,7 +52,7 @@ Gui libraries for Xfce desktop environment.
 %package -n %{libname3}
 Summary:	GTK3 GUI libraries for Xfce
 Group:		Graphical desktop/Xfce
-Requires:	%{name} >= %{EVRD}
+Requires:	%{name}-common = %{EVRD}
 
 %description -n %{libname3}
 GTK3 GUI libraries for Xfce desktop environment.
@@ -62,7 +62,7 @@ Summary:	GTK3 GUI libraries for Xfce
 Group:		Graphical desktop/Xfce
 
 %description -n %{libnamekbd3}
-GTK3 GUI libraries for Xfce desktop environment
+GTK3 GUI libraries for Xfce desktop environment.
 
 %package common
 Summary:	Common files for %{name}
