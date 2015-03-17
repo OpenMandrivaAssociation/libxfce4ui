@@ -35,7 +35,7 @@ Various Xfce widgets for Xfce desktop environment.
 %package -n %{libname}
 Summary:	Gui libraries for Xfce
 Group:		Graphical desktop/Xfce
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{EVRD}
 
 %description -n %{libname}
 Gui libraries for Xfce desktop environment.
@@ -43,7 +43,7 @@ Gui libraries for Xfce desktop environment.
 %package -n %{libnamekbd}
 Summary:	Gui libraries for Xfce
 Group:		Graphical desktop/Xfce
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{EVRD}
 Conflicts:	%{_lib}xfce4ui1_0 < 4.8.1-1
 
 %description -n %{libnamekbd}
@@ -52,7 +52,7 @@ Gui libraries for Xfce desktop environment.
 %package -n %{libname3}
 Summary:	GTK3 GUI libraries for Xfce
 Group:		Graphical desktop/Xfce
-Requires:	%{name} >= %{version}-%{release}
+Requires:	%{name} >= %{EVRD}
 
 %description -n %{libname3}
 GTK3 GUI libraries for Xfce desktop environment.
@@ -85,9 +85,10 @@ provided Xfce widgets in Glade.
 %package -n %{develname}
 Summary:	Libraries and header files for the %{name} library
 Group:		Development/Other
-Requires:	%{libname} = %{version}
-Requires:	%{libnamekbd} = %{version}
+Requires:	%{libname} = %{EVRD}
+Requires:	%{libnamekbd} = %{EVRD}
 Provides:	%{name}-devel = %{EVRD}
+Obsoletes:	%{_lib}xfce4ui-devel < 4.12.1-1
 
 %description -n %{develname}
 Libraries and header files for the %{name} library.
@@ -95,9 +96,9 @@ Libraries and header files for the %{name} library.
 %package -n %{develname3}
 Summary:	Development files and headers for the %{name} library using GTK3
 Group:		Development/Other
-Requires:	%{libname3} = %{version}-%{release}
-Requires:	%{libnamekbd3} = %{version}-%{release}
-Conflicts:	%{_lib}xfce4ui-devel < 4.12.1-2
+Requires:	%{libname3} = %{EVRD}
+Requires:	%{libnamekbd3} = %{EVRD}
+Conflicts:	%{_lib}xfce4ui-devel < 4.12.1-1
 
 %description -n %{develname3}
 Development files and headers for the %{name} library using GTK3.
