@@ -8,9 +8,9 @@
 
 %define api3 2
 %define apikbd3 3
-%define libname3 %mklibname %{oname}ui %{api3} %{major}
-%define libnamekbd3 %mklibname %{oname}kbd-private %{apikbd3} %{major}
-%define develname3 %mklibname %{oname}ui %{api3} -d
+%define libname3 %mklibname xfce4ui %{api3} %{major}
+%define libnamekbd3 %mklibname xfce4kbd-private %{apikbd3} %{major}
+%define develname3 %mklibname xfce4ui %{api3} -d
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
@@ -108,6 +108,7 @@ Development files and headers for the %{name} library using GTK3.
 %build
 %configure \
 	--disable-static \
+	--disable-gtk-doc \
 	--enable-startup-notification \
 	--enable-gladeui \
 	--enable-gtk3 \
