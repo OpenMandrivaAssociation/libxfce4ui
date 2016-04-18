@@ -15,7 +15,7 @@
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
 Version: 	4.12.1
-Release: 	0.1
+Release: 	0.2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -88,7 +88,7 @@ Group:		Development/Other
 Requires:	%{libname} = %{EVRD}
 Requires:	%{libnamekbd} = %{EVRD}
 Provides:	%{name}-devel = %{EVRD}
-Obsoletes:	%{_lib}xfce4ui-devel < 4.12.1-1
+Obsoletes:	%{_lib}xfce4ui-devel < 4.12.1-0.1
 
 %description -n %{develname}
 Libraries and header files for the %{name} library.
@@ -98,7 +98,7 @@ Summary:	Development files and headers for the %{name} library using GTK3
 Group:		Development/Other
 Requires:	%{libname3} = %{EVRD}
 Requires:	%{libnamekbd3} = %{EVRD}
-Conflicts:	%{_lib}xfce4ui-devel < 4.12.1-1
+Conflicts:	%{_lib}xfce4ui-devel < 4.12.1-0.1
 
 %description -n %{develname3}
 Development files and headers for the %{name} library using GTK3.
