@@ -163,11 +163,12 @@ Development files and headers for the %{name} library using GTK3.
 %setup -q
 
 %build
+%xdt_autogen
 %configure \
-	--disable-static \
 	--enable-startup-notification \
-	--enable-gladeui \
-	--enable-gtk3 \
+	--disable-gladeui \
+	--enable-gladeui2 \
+	--enable-introspection \
 	--with-vendor-info=%{vendor} \
 	%{nil}
 %make_build
