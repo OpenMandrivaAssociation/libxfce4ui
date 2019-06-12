@@ -21,13 +21,13 @@ Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	pkgconfig(gdk-2.0) >= 2.0.6
+BuildRequires:	pkgconfig(gladeui-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.12.0
 BuildRequires:	pkgconfig(libstartup-notification-1.0)
-BuildRequires:	xfce4-dev-tools >= 4.12.0
-BuildRequires:	pkgconfig(gladeui-1.0)
-BuildRequires:	xfconf-devel >= 4.12.0
 BuildRequires:	pkgconfig(sm)
+BuildRequires:	xfconf-devel >= 4.12.0
+BuildRequires:	xfce4-dev-tools >= 4.12.0
 
 %description
 Various Xfce widgets for Xfce desktop environment.
@@ -40,6 +40,11 @@ Requires:	%{name}-common = %{EVRD}
 %description -n %{libname}
 Gui libraries for Xfce desktop environment.
 
+%files -n %{libname}
+%{_libdir}/libxfce4ui-%{api}.so.%{major}*
+
+#---------------------------------------------------------------------------
+
 %package -n %{libnamekbd}
 Summary:	Gui libraries for Xfce
 Group:		Graphical desktop/Xfce
@@ -49,6 +54,11 @@ Conflicts:	%{_lib}xfce4ui1_0 < 4.8.1-1
 %description -n %{libnamekbd}
 Gui libraries for Xfce desktop environment.
 
+%files -n %{libnamekbd}
+%{_libdir}/libxfce4kbd-private-%{apikbd}.so.%{major}*
+
+#---------------------------------------------------------------------------
+
 %package -n %{libname3}
 Summary:	GTK3 GUI libraries for Xfce
 Group:		Graphical desktop/Xfce
@@ -57,12 +67,22 @@ Requires:	%{name}-common = %{EVRD}
 %description -n %{libname3}
 GTK3 GUI libraries for Xfce desktop environment.
 
+%files -n %{libname3}
+%{_libdir}/libxfce4ui-%{api3}.so.%{major}*
+
+#---------------------------------------------------------------------------
+
 %package -n %{libnamekbd3}
 Summary:	GTK3 GUI libraries for Xfce
 Group:		Graphical desktop/Xfce
 
 %description -n %{libnamekbd3}
 GTK3 GUI libraries for Xfce desktop environment.
+
+%files -n %{libnamekbd3}
+%{_libdir}/libxfce4kbd-private-%{apikbd3}.so.%{major}*
+
+#---------------------------------------------------------------------------
 
 %package common
 Summary:	Common files for %{name}
@@ -71,6 +91,13 @@ Conflicts:      %{_lib}xfce4ui1_0 < 4.8.1-1
 
 %description common
 This package contains common files for %{name}.
+
+%files common -f %{name}.lang
+%{_bindir}/xfce4-about
+%{_datadir}/applications/xfce4-about.desktop
+%{_iconsdir}/hicolor/*/apps/xfce4-logo.png
+
+#---------------------------------------------------------------------------
 
 %package -n %{name}-glade
 Summary:	Glade modules for %{name}
@@ -81,6 +108,13 @@ Conflicts:	%{_lib}xfce4ui1_0 < 4.8.1-1
 %description -n %{name}-glade
 This package provides a catalog for Glade which allows the use of the
 provided Xfce widgets in Glade.
+
+%files -n %{name}-glade
+%{_libdir}/glade3/modules/%{name}*
+%{_datadir}/glade3/catalogs/%{name}.*
+%{_datadir}/glade3/pixmaps/hicolor/*/*/*%{name}*.png
+
+#---------------------------------------------------------------------------
 
 %package -n %{develname}
 Summary:	Libraries and header files for the %{name} library
@@ -93,60 +127,6 @@ Obsoletes:	%{_lib}xfce4ui-devel < 4.12.1-1
 %description -n %{develname}
 Libraries and header files for the %{name} library.
 
-%package -n %{develname3}
-Summary:	Development files and headers for the %{name} library using GTK3
-Group:		Development/Other
-Requires:	%{libname3} = %{EVRD}
-Requires:	%{libnamekbd3} = %{EVRD}
-Conflicts:	%{_lib}xfce4ui-devel < 4.12.1-1
-
-%description -n %{develname3}
-Development files and headers for the %{name} library using GTK3.
-
-%prep
-%setup -q
-
-%build
-%configure \
-	--disable-static \
-	--disable-gtk-doc \
-	--enable-startup-notification \
-	--enable-gladeui \
-	--enable-gtk3 \
-	--with-vendor-info=%{vendor}
-
-%make
-
-%install
-%makeinstall_std
-
-# (tpg) this file is in mandriva-xfce-config package
-rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-
-%find_lang %{name} %{name}.lang
-
-%files common -f %{name}.lang
-%{_bindir}/xfce4-about
-%{_datadir}/applications/xfce4-about.desktop
-%{_iconsdir}/hicolor/*/apps/xfce4-logo.png
-
-%files -n %{libname}
-%{_libdir}/libxfce4ui-%{api}.so.%{major}*
-
-%files -n %{libnamekbd}
-%{_libdir}/libxfce4kbd-private-%{apikbd}.so.%{major}*
-
-%files -n %{libname3}
-%{_libdir}/libxfce4ui-%{api3}.so.%{major}*
-
-%files -n %{libnamekbd3}
-%{_libdir}/libxfce4kbd-private-%{apikbd3}.so.%{major}*
-
-%files -n %{name}-glade
-%{_libdir}/glade3/modules/%{name}*
-%{_datadir}/glade3/catalogs/%{name}.*
-%{_datadir}/glade3/pixmaps/hicolor/*/*/*%{name}*.png
-
 %files -n %{develname}
 %doc AUTHORS ChangeLog README NEWS
 %doc %{_datadir}/gtk-doc/html/%{name}/
@@ -157,6 +137,18 @@ rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-key
 %{_includedir}/xfce4/%{name}-%{api}/
 %{_includedir}/xfce4/libxfce4kbd-private-%{apikbd}/
 
+#---------------------------------------------------------------------------
+
+%package -n %{develname3}
+Summary:	Development files and headers for the %{name} library using GTK3
+Group:		Development/Other
+Requires:	%{libname3} = %{EVRD}
+Requires:	%{libnamekbd3} = %{EVRD}
+Conflicts:	%{_lib}xfce4ui-devel < 4.12.1-1
+
+%description -n %{develname3}
+Development files and headers for the %{name} library using GTK3.
+
 %files -n %{develname3}
 %{_libdir}/pkgconfig/libxfce4kbd-private-%{apikbd3}.pc
 %{_libdir}/pkgconfig/libxfce4ui-%{api3}.pc
@@ -164,3 +156,27 @@ rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-key
 %{_libdir}/libxfce4kbd-private-%{apikbd3}.so
 %{_includedir}/xfce4/%{name}-%{api3}/
 %{_includedir}/xfce4/libxfce4kbd-private-%{apikbd3}/
+
+#---------------------------------------------------------------------------
+
+%prep
+%setup -q
+
+%build
+%configure \
+	--disable-static \
+	--enable-startup-notification \
+	--enable-gladeui \
+	--enable-gtk3 \
+	--with-vendor-info=%{vendor} \
+	%{nil}
+%make_build
+
+%install
+%make_install
+
+# (tpg) this file is in distro-xfce-config package
+rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+
+# locales
+%find_lang %{name} %{name}.lang
