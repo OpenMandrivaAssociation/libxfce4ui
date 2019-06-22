@@ -113,8 +113,8 @@ provided Xfce widgets in Glade.
 
 %files -n %{name}-glade
 %{_libdir}/glade3/modules/%{name}*
-%{_datadir}/glade3/catalogs/%{name}.*
-%{_datadir}/glade3/pixmaps/hicolor/*/*/*%{name}*.png
+%{_datadir}/glade3/catalogs/%{name}.xml*
+%{_datadir}/glade3/pixmaps/hicolor/*/actions/*%{name}*.png
 
 #---------------------------------------------------------------------------
 
@@ -167,10 +167,9 @@ Development files and headers for the %{name} library using GTK3.
 %build
 %xdt_autogen
 %configure \
-	--enable-startup-notification \
-	--disable-gladeui \
-	--enable-gladeui2 \
+	--enable-gtk3 \
 	--enable-introspection \
+	--enable-startup-notification \
 	--with-vendor-info=%{vendor} \
 	%{nil}
 %make_build
