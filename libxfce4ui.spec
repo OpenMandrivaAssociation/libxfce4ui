@@ -26,9 +26,9 @@ BuildRequires:	pkgconfig(gdk-2.0)
 BuildRequires:	pkgconfig(gladeui-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libxfce4util-1.0)
+BuildRequires:	pkgconfig(libxfconf-0)
 BuildRequires:	pkgconfig(libstartup-notification-1.0)
 BuildRequires:	pkgconfig(sm)
-BuildRequires:	xfconf-devel
 BuildRequires:	xfce4-dev-tools
 
 %description
