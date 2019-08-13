@@ -124,6 +124,7 @@ Group:		Development/Other
 Requires:	%{libname} = %{EVRD}
 Requires:	%{libnamekbd} = %{EVRD}
 Requires:	%{girname} = %{EVRD}
+Requires:	%{develname3} = %{EVRD}
 Provides:	%{name}-devel = %{EVRD}
 Obsoletes:	%{_lib}xfce4ui-devel < 4.12.1-1
 
