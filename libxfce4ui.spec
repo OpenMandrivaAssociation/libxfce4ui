@@ -11,23 +11,23 @@
 %define libname3 %mklibname xfce4ui %{api3} %{major}
 %define libnamekbd3 %mklibname xfce4kbd-private %{apikbd3} %{major}
 %define develname3 %mklibname xfce4ui %{api3} -d
+%define girname %mklibname %{name}-gir
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version: 	4.12.1
-Release: 	2
+Version:	4.14.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
-BuildRequires:  gtk-doc
-BuildRequires:  gtk-doc-mkpdf
 BuildRequires:	pkgconfig(gdk-2.0)
 BuildRequires:	pkgconfig(gladeui-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libxfce4util-1.0)
 BuildRequires:	pkgconfig(libxfconf-0)
 BuildRequires:	pkgconfig(libstartup-notification-1.0)
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(sm)
 BuildRequires:	xfce4-dev-tools
 
@@ -123,6 +123,7 @@ Summary:	Libraries and header files for the %{name} library
 Group:		Development/Other
 Requires:	%{libname} = %{EVRD}
 Requires:	%{libnamekbd} = %{EVRD}
+Requires:	%{girname} = %{EVRD}
 Provides:	%{name}-devel = %{EVRD}
 Obsoletes:	%{_lib}xfce4ui-devel < 4.12.1-1
 
@@ -138,6 +139,19 @@ Libraries and header files for the %{name} library.
 %{_libdir}/pkgconfig/libxfce4ui-%{api}.pc
 %{_includedir}/xfce4/%{name}-%{api}/
 %{_includedir}/xfce4/libxfce4kbd-private-%{apikbd}/
+%{_datadir}/gir-1.0/libxfce4ui-2.0.gir
+
+#---------------------------------------------------------------
+%package -n %{girname}
+Summary: GObject Introspection interface for %{name}
+Group: System/Libraries
+Requires: %{libname} >= %{EVRD}
+
+%description -n %{girname}
+GObject Introspection interface description for %{name}.
+
+%files -n %{girname}
+%{_libdir}/girepository-1.0/%{name}-2.0.typelib
 
 #---------------------------------------------------------------------------
 
