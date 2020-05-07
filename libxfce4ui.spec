@@ -104,7 +104,7 @@ This package contains common files for %{name}.
 %package -n %{name}-glade
 Summary:	Glade modules for %{name}
 Group:		Graphical desktop/Xfce
-Requires:	glade3
+Requires:	glade
 Conflicts:	%{_lib}xfce4ui1_0 < 4.8.1-1
 
 %description -n %{name}-glade
