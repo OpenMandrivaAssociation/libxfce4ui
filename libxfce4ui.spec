@@ -112,9 +112,9 @@ This package provides a catalog for Glade which allows the use of the
 provided Xfce widgets in Glade.
 
 %files -n %{name}-glade
-%{_libdir}/glade3/modules/%{name}*
-%{_datadir}/glade3/catalogs/%{name}.xml*
-%{_datadir}/glade3/pixmaps/hicolor/*/actions/*%{name}*.png
+#{_libdir}/glade3/modules/%{name}*
+#{_datadir}/glade3/catalogs/%{name}.xml*
+#{_datadir}/glade3/pixmaps/hicolor/*/actions/*%{name}*.png
 
 #---------------------------------------------------------------------------
 
