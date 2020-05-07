@@ -112,7 +112,7 @@ This package provides a catalog for Glade which allows the use of the
 provided Xfce widgets in Glade.
 
 %files -n %{name}-glade
-%{_libdir}glade/modules/libxfce4uiglade2.so
+%{_libdir}/glade/modules/libxfce4uiglade2.so
 %{_datadir}/glade/catalogs/libxfce4ui-2.xml
 %{_datadir}/glade/pixmaps/hicolor/*x*/actions/widget-libxfce4ui-xfce-titled-dialog.png
 
