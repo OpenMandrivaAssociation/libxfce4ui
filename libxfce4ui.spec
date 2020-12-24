@@ -15,20 +15,24 @@
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version:	4.14.1
-Release:	2
+Version:	4.16.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
-BuildRequires:	pkgconfig(gdk-2.0)
+
+BuildRequires:	intltool
 BuildRequires:  pkgconfig(gladeui-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libxfce4util-1.0)
 BuildRequires:	pkgconfig(libxfconf-0)
 BuildRequires:	pkgconfig(libstartup-notification-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
+BuildRequires:	pkgconfig(libgtop-2.0)
+BuildRequires:	pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(sm)
+BuildRequires:  pkgconfig(vapigen)
 BuildRequires:	xfce4-dev-tools
 
 %description
@@ -180,7 +184,6 @@ Development files and headers for the %{name} library using GTK3.
 %setup -q
 
 %build
-%xdt_autogen
 %configure \
 	--enable-gtk3 \
 	--enable-introspection \
