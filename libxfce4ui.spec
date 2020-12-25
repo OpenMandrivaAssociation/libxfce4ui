@@ -39,15 +39,15 @@ BuildRequires:	xfce4-dev-tools
 Various Xfce widgets for Xfce desktop environment.
 
 %package -n %{libname}
-Summary:	Gui libraries for Xfce
+Summary:	GTK3 Gui libraries for Xfce
 Group:		Graphical desktop/Xfce
 Requires:	%{name}-common = %{EVRD}
 
 %description -n %{libname}
-Gui libraries for Xfce desktop environment.
+GTK3 Gui libraries for Xfce desktop environment.
 
 %files -n %{libname}
-#{_libdir}/libxfce4ui-%{api}.so.%{major}*
+%{_libdir}/libxfce4ui-%{api3}.so.%{major}*
 
 #---------------------------------------------------------------------------
 
@@ -62,19 +62,6 @@ Gui libraries for Xfce desktop environment.
 
 %files -n %{libnamekbd}
 #{_libdir}/libxfce4kbd-private-%{apikbd}.so.%{major}*
-
-#---------------------------------------------------------------------------
-
-%package -n %{libname3}
-Summary:	GTK3 GUI libraries for Xfce
-Group:		Graphical desktop/Xfce
-Requires:	%{name}-common = %{EVRD}
-
-%description -n %{libname3}
-GTK3 GUI libraries for Xfce desktop environment.
-
-%files -n %{libname3}
-%{_libdir}/libxfce4ui-%{api3}.so.%{major}*
 
 #---------------------------------------------------------------------------
 
