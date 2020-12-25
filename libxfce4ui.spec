@@ -136,15 +136,15 @@ Obsoletes:	%{_lib}xfce4ui-devel < 4.12.1-1
 Libraries and header files for the %{name} library.
 
 %files -n %{develname}
-%doc AUTHORS ChangeLog README NEWS
+%doc AUTHORS ChangeLog README.md NEWS
 %doc %{_datadir}/gtk-doc/html/%{name}/
-%{_libdir}/%{name}-%{api}.so
-%{_libdir}/libxfce4kbd-private-%{apikbd}.so
-%{_libdir}/pkgconfig/libxfce4kbd-private-%{apikbd}.pc
-%{_libdir}/pkgconfig/libxfce4ui-%{api}.pc
-%{_includedir}/xfce4/%{name}-%{api}/
-%{_includedir}/xfce4/libxfce4kbd-private-%{apikbd}/
-%{_datadir}/gir-1.0/libxfce4ui-2.0.gir
+#{_libdir}/%{name}-%{api}.so
+#{_libdir}/libxfce4kbd-private-%{apikbd}.so
+#{_libdir}/pkgconfig/libxfce4kbd-private-%{apikbd}.pc
+#{_libdir}/pkgconfig/libxfce4ui-%{api}.pc
+#{_includedir}/xfce4/%{name}-%{api}/
+#{_includedir}/xfce4/libxfce4kbd-private-%{apikbd}/
+#{_datadir}/gir-1.0/libxfce4ui-2.0.gir
 
 #---------------------------------------------------------------
 %package -n %{girname}
