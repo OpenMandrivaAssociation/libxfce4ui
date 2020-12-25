@@ -88,7 +88,6 @@ This package contains common files for %{name}.
 %files common -f %{name}.lang
 %{_bindir}/xfce4-about
 %{_datadir}/applications/xfce4-about.desktop
-%{_iconsdir}/hicolor/*/apps/xfce4-logo.png
 %{_iconsdir}/hicolor/*/apps/org.xfce.about.{png,svg}
 %{_iconsdir}/hicolor/*/apps/xfce4-logo.{png,svg}
 
@@ -145,7 +144,7 @@ Requires: %{libname} >= %{EVRD}
 GObject Introspection interface description for %{name}.
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/libxfce4ui-%{gmajor}.typelib
+#{_libdir}/girepository-1.0/libxfce4ui-%{gmajor}.typelib
 
 #---------------------------------------------------------------------------
 
