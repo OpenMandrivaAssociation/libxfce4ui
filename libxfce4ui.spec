@@ -121,12 +121,12 @@ Conflicts:	%{_lib}xfce4ui-devel < 4.12.1-1
 Development files and headers for the %{name} library using GTK3.
 
 %files -n %{develname}
-%{_libdir}/pkgconfig/libxfce4kbd-private-%{apikbd3}.pc
+%{_libdir}/pkgconfig/libxfce4kbd-private-%{apikbd}.pc
 %{_libdir}/pkgconfig/libxfce4ui-%{api3}.pc
 %{_libdir}/%{name}-%{api3}.so
-%{_libdir}/libxfce4kbd-private-%{apikbd3}.so
+%{_libdir}/libxfce4kbd-private-%{apikbd}.so
 %{_includedir}/xfce4/%{name}-%{api3}/
-%{_includedir}/xfce4/libxfce4kbd-private-%{apikbd3}/
+%{_includedir}/xfce4/libxfce4kbd-private-%{apikbd}/
 %{_datadir}/gir-1.0/Libxfce4ui-%{gmajor}.gir
 %{_datadir}/vala/vapi/libxfce4ui-2.{deps,vapi}
 
