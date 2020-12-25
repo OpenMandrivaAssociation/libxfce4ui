@@ -1,7 +1,6 @@
 %define url_ver %(echo %{version} | cut -d. -f1,2)
 %define major 0
 %define api 2
-%define apikbd 3
 %define gmajor	2.0
 %define libname %mklibname xfce4ui %{api} %{major}
 %define libnamekbd %mklibname xfce4kbd-private %{apikbd} %{major}
