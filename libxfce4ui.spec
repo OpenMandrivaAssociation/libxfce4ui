@@ -61,7 +61,7 @@ Conflicts:	%{_lib}xfce4ui1_0 < 4.8.1-1
 Gui libraries for Xfce desktop environment.
 
 %files -n %{libnamekbd}
-%{_libdir}/libxfce4kbd-private-%{apikbd}.so.%{major}*
+#{_libdir}/libxfce4kbd-private-%{apikbd}.so.%{major}*
 
 #---------------------------------------------------------------------------
 
