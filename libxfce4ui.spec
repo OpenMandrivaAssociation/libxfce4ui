@@ -1,7 +1,8 @@
 %define url_ver %(echo %{version} | cut -d. -f1,2)
 %define major 0
-%define api 1
-%define apikbd 2
+%define api 2
+%define apikbd 3
+%define gmajor	2.0
 %define libname %mklibname xfce4ui %{api} %{major}
 %define libnamekbd %mklibname xfce4kbd-private %{apikbd} %{major}
 %define develname %mklibname xfce4ui -d
@@ -102,6 +103,8 @@ This package contains common files for %{name}.
 %{_bindir}/xfce4-about
 %{_datadir}/applications/xfce4-about.desktop
 %{_iconsdir}/hicolor/*/apps/xfce4-logo.png
+%{_iconsdir}/hicolor/*/apps/org.xfce.about.{png,svg}
+%{_iconsdir}/hicolor/*/apps/xfce4-logo.{png,svg}
 
 #---------------------------------------------------------------------------
 
@@ -156,7 +159,7 @@ Requires: %{libname} >= %{EVRD}
 GObject Introspection interface description for %{name}.
 
 %files -n %{girname}
-#{_libdir}/girepository-1.0/%{name}-2.0.typelib
+%{_libdir}/girepository-1.0/libxfce4ui-%{gmajor}.typelib
 
 #---------------------------------------------------------------------------
 
@@ -177,6 +180,8 @@ Development files and headers for the %{name} library using GTK3.
 %{_libdir}/libxfce4kbd-private-%{apikbd3}.so
 %{_includedir}/xfce4/%{name}-%{api3}/
 %{_includedir}/xfce4/libxfce4kbd-private-%{apikbd3}/
+%{_datadir}/gir-1.0/Libxfce4ui-%{gmajor}.gir
+%{_datadir}/vala/vapi/libxfce4ui-2.{deps,vapi}
 
 #---------------------------------------------------------------------------
 
