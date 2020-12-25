@@ -58,7 +58,7 @@ Group:		Graphical desktop/Xfce
 GTK3 GUI libraries for Xfce desktop environment.
 
 %files -n %{libnamekbd}
-%{_libdir}/libxfce4kbd-private-%{apikbd3}.so.%{major}*
+%{_libdir}/libxfce4kbd-private-%{apikbd}.so.%{major}*
 
 #---------------------------------------------------------------------------
 
