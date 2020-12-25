@@ -121,6 +121,8 @@ Conflicts:	%{_lib}xfce4ui-devel < 4.12.1-1
 Development files and headers for the %{name} library using GTK3.
 
 %files -n %{develname}
+%doc AUTHORS ChangeLog README.md NEWS
+%doc %{_datadir}/gtk-doc/html/%{name}/
 %{_libdir}/pkgconfig/libxfce4kbd-private-%{apikbd}.pc
 %{_libdir}/pkgconfig/libxfce4ui-%{api3}.pc
 %{_libdir}/%{name}-%{api3}.so
