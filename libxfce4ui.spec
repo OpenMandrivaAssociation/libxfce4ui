@@ -144,7 +144,7 @@ Requires: %{libname} >= %{EVRD}
 GObject Introspection interface description for %{name}.
 
 %files -n %{girname}
-#{_libdir}/girepository-1.0/libxfce4ui-%{gmajor}.typelib
+%{_libdir}/girepository-1.0/Libxfce4ui-%{gmajor}.typelib
 
 #---------------------------------------------------------------------------
 
