@@ -47,7 +47,7 @@ Requires:	%{name}-common = %{EVRD}
 Gui libraries for Xfce desktop environment.
 
 %files -n %{libname}
-%{_libdir}/libxfce4ui-%{api}.so.%{major}*
+#{_libdir}/libxfce4ui-%{api}.so.%{major}*
 
 #---------------------------------------------------------------------------
 
