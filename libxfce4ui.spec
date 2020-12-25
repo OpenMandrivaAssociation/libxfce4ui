@@ -156,7 +156,7 @@ Requires: %{libname} >= %{EVRD}
 GObject Introspection interface description for %{name}.
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/%{name}-2.0.typelib
+#{_libdir}/girepository-1.0/%{name}-2.0.typelib
 
 #---------------------------------------------------------------------------
 
