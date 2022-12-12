@@ -13,7 +13,7 @@
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version:	4.16.1
+Version:	4.17.9
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
@@ -23,6 +23,7 @@ Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{versio
 BuildRequires:	intltool
 BuildRequires:  pkgconfig(gladeui-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(libxfce4util-1.0)
 BuildRequires:	pkgconfig(libxfconf-0)
 BuildRequires:	pkgconfig(libstartup-notification-1.0)
@@ -73,6 +74,7 @@ This package contains common files for %{name}.
 %files common -f %{name}.lang
 %{_bindir}/xfce4-about
 %{_datadir}/applications/xfce4-about.desktop
+%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 %{_iconsdir}/hicolor/*/apps/org.xfce.about.{png,svg}
 %{_iconsdir}/hicolor/*/apps/xfce4-logo.{png,svg}
 
@@ -150,7 +152,7 @@ Development files and headers for the %{name} library using GTK3.
 %make_install
 
 # (tpg) this file is in distro-xfce-config package
-rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+#rm -rf %{buildroot}%{_sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 
 # locales
 %find_lang %{name} %{name}.lang
