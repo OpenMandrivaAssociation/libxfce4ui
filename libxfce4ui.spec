@@ -32,6 +32,7 @@ BuildRequires:	pkgconfig(libgtop-2.0)
 BuildRequires:	pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(sm)
 BuildRequires:  pkgconfig(vapigen)
+BuildRequires:  pkgconfig(harfbuzz-gobject)
 BuildRequires:	xfce4-dev-tools
 
 %description
