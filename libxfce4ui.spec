@@ -13,12 +13,12 @@
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version:	4.18.5
+Version:	4.18.6
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
-URL:		http://www.xfce.org
-Source0:	http://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
+URL:		https://www.xfce.org
+Source0:	https://archive.xfce.org/src/xfce/libxfce4ui/%{url_ver}/%{name}-%{version}.tar.bz2
 
 BuildRequires:	intltool
 BuildRequires:  pkgconfig(gladeui-2.0)
