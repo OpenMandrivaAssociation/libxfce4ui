@@ -2,8 +2,10 @@
 %define major 0
 %define api 2
 %define gmajor	2.0
-%define libname %mklibname xfce4ui %{api} %{major}
+%define libname %mklibname xfce4ui
+%define oldlibname %mklibname xfce4ui 2 0
 %define libnamekbd %mklibname xfce4kbd-private %{apikbd} %{major}
+%define oldlibnamekbd %mklibname xfce4kbd-private 3 0
 %define develname %mklibname xfce4ui -d
 %define girname %mklibname %{name}-gir
 
@@ -13,7 +15,7 @@
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version:	4.18.6
+Version:	4.20.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
@@ -42,6 +44,7 @@ Various Xfce widgets for Xfce desktop environment.
 Summary:	GTK3 Gui libraries for Xfce
 Group:		Graphical desktop/Xfce
 Requires:	%{name}-common = %{EVRD}
+%rename %{oldlibname}
 
 %description -n %{libname}
 GTK3 Gui libraries for Xfce desktop environment.
@@ -55,6 +58,7 @@ GTK3 Gui libraries for Xfce desktop environment.
 %package -n %{libnamekbd}
 Summary:	GTK3 GUI libraries for Xfce
 Group:		Graphical desktop/Xfce
+%rename %{oldlibnamekbd}
 
 %description -n %{libnamekbd}
 GTK3 GUI libraries for Xfce desktop environment.
@@ -138,15 +142,14 @@ Development files and headers for the %{name} library using GTK3.
 #---------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure \
 	--enable-gtk3 \
 	--enable-introspection \
 	--enable-startup-notification \
-	--with-vendor-info=%{vendor} \
-	%{nil}
+	--with-vendor-info=%{vendor}
 %make_build
 
 %install
