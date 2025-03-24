@@ -15,7 +15,7 @@
 
 Summary:	Various Xfce widgets for Xfce desktop environment
 Name:		libxfce4ui
-Version:	4.20.0
+Version:	4.20.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
